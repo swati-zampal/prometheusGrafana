@@ -1,28 +1,40 @@
-Use the Manual Method Instead
+commands to install Grafana on Ubuntu
 
-Run the following step-by-step commands:
+✅ 1. Update system packages
 
-1. Add Grafana GPG Key
+sudo apt update
+
+✅ 2. Install required dependencies
+
+sudo apt install -y software-properties-common
+
+✅ 3. Add Grafana APT repository
+
+sudo add-apt-repository "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main"
+
+✅ 4. Add the GPG key
 
 sudo mkdir -p /usr/share/keyrings
 curl -fsSL https://apt.grafana.com/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/grafana.gpg
 
-2. Add the APT repository manually
-
-echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
-
-3. Update APT cache
+✅ 5. Update package list again
 
 sudo apt update
 
-
-4. Install Grafana
+✅ 6. Install Grafana
 
 sudo apt install -y grafana
 
-5. Start and enable Grafana
+✅ 7. Start and enable Grafana service
 
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
 
-To access Grafana at `http://<your-server-ip>:3000`.
+✅ 8. Access Grafana Web Interface
+
+Open your browser and visit: [http://your\_server\_ip:3000](http://your_server_ip:3000)
+Default login:
+
+  Username: admin
+  Password: admin (you’ll be prompted to change it after first login)
+
